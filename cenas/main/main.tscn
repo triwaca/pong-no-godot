@@ -6,6 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://c01tpnb7cd5xx" path="res://cenas/bola/bola.tscn" id="4_21t6f"]
 [ext_resource type="PackedScene" uid="uid://bwbkveg121ieq" path="res://cenas/game_manager/game_manager.tscn" id="5_fhl48"]
 [ext_resource type="PackedScene" uid="uid://cweysytgbnngg" path="res://cenas/gol/gol.tscn" id="6_4nob2"]
+[ext_resource type="FontFile" uid="uid://31v0j32p4vfy" path="res://assets/fonte/PublicPixel-z84yD.ttf" id="7_x04rp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dpsnu"]
+font = ExtResource("7_x04rp")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_a7ji1"]
+font = ExtResource("7_x04rp")
+font_size = 50
 
 [node name="Main" type="Node2D" unique_id=1544270340]
 
@@ -34,6 +43,46 @@ position = Vector2(-34, 0)
 
 [node name="gol2" parent="." unique_id=329770701 instance=ExtResource("6_4nob2")]
 position = Vector2(1314, 0)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1146671870]
+
+[node name="PainelDePontuacao" type="Control" parent="UI" unique_id=1603515675]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextoPontuacaoJogador1" type="Label" parent="UI/PainelDePontuacao" unique_id=938789149]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_top = 10.0
+offset_right = -25.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_dpsnu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextoPontuacaoJogador2" type="Label" parent="UI/PainelDePontuacao" unique_id=775683598]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 24.0
+offset_top = 10.0
+offset_right = 124.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_a7ji1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="gol1" to="gameManager" method="_on_gol_1_area_entered"]
 [connection signal="area_entered" from="gol2" to="gameManager" method="_on_gol_2_area_entered"]

@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bwbkveg121ieq"]
 
 [ext_resource type="Script" uid="uid://dm6w4sipytcuc" path="res://cenas/game_manager/game_manager.gd" id="1_kh1yo"]
+[ext_resource type="AudioStream" uid="uid://cw7i3m8b1c4ip" path="res://assets/sons/impacto-gol.wav" id="2_xlkrb"]
 
 [node name="gameManager" type="Node2D" unique_id=1627478298]
 script = ExtResource("1_kh1yo")
+
+[node name="somGol" type="AudioStreamPlayer2D" parent="." unique_id=1673169609]
+stream = ExtResource("2_xlkrb")

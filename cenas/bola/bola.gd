@@ -8,6 +8,9 @@ var direcaoBola : Vector2 = Vector2(0,0)
 var minY : int = 0
 var maxY : int = 720
 
+@onready var som_impacto_barreira : AudioStreamPlayer2D = $SomImpactoBarreira
+@onready var som_impacto_jogador : AudioStreamPlayer2D = $SomImpactoJogador
+
 #timer
 @onready var timer : Timer = $Timer
 
@@ -39,11 +42,16 @@ func moveBola(delta: float) -> void:
 func colidirComParedes() -> void:
 	if position.y > maxY:
 		novaDirecaoBola.y *= -1
+		if position.x >=0 and position.x <=1280:
+			som_impacto_barreira.play()
 	if position.y < minY:
 		novaDirecaoBola.y *= -1
+		if position.x >=0 and position.x <=1280:
+			som_impacto_barreira.play()
 
 
 func _on_body_entered(body: Node2D) -> void:
+	som_impacto_jogador.play()
 	print("Rebateu!")
 	if body.is_in_group("jogadores"):
 		novaDirecaoBola.x *= -1
